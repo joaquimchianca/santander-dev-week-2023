@@ -6,6 +6,8 @@ import me.dio.domain.repository.UserRepository;
 import me.dio.service.UserService;
 import me.dio.service.exception.BusinessException;
 import me.dio.service.exception.NotFoundException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,8 +23,8 @@ public class UserServiceImpl implements UserService {
         this.userRepository = repo;
     }
 
-    public List<User> listAll() {
-        return this.userRepository.findAll();
+    public Page<User> listAll(Pageable page) {
+        return this.userRepository.findAll(page);
     }
 
     public User findById(Long id) {
