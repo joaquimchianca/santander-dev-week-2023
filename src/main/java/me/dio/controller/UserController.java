@@ -22,7 +22,7 @@ public record UserController(UserService userService) {
         return ResponseEntity.ok(userService.listAll(page));
     }
 
-    @GetMapping("/{id}}")
+    @GetMapping("/{id}")
     public ResponseEntity<User> findById(@PathVariable Long id) {
         return ResponseEntity.ok(userService.findById(id));
     }
@@ -43,7 +43,6 @@ public record UserController(UserService userService) {
     }
 
     @DeleteMapping("/{id}")
-
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         userService.delete(id);
         return ResponseEntity.noContent().build();
